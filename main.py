@@ -1,13 +1,34 @@
-from converter import celsius_to_fahreneheit
+from converter import celsius_to_fahrenheit, fahrenheit_to_celsius
 
 print("Temperature Converter")
 
-try:
-    celsius = float(input("Enter a temperature in Celsius: "))
+print("1. Celsius to Fahrenheit")
+print("2. Fahrenheit to Celsius")
 
-    fahrenheit = celsius_to_fahreneheit(celsius)
+choice  = input("Choose a conversion (1 or 2): ")
 
-    print(f"{celsius}°C is equal to {fahrenheit}°F")
+if choice == "1":
 
-except ValueError:
-    print("Invalid input. Please enter a number.")
+    try:
+        celsius = float(input("Enter a temperature in Celsius: "))
+
+        fahrenheit = celsius_to_fahrenheit(celsius)
+
+        print(f"{celsius}°C is equal to {fahrenheit}°F")
+
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+elif choice == "2":
+    try:
+        fahrenheit = float(input("Enter a temperature in Fahrenheit: "))
+
+        celsius = fahrenheit_to_celsius(fahrenheit)
+
+        print(f"{fahrenheit}°F is equal to {celsius}°C")
+
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+else:
+    print("Invalid choice")
